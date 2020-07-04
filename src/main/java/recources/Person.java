@@ -4,11 +4,14 @@ public abstract class Person {
 
     protected String firstName;
     protected String lastName;
+    protected final Gender gender;
+
 
     public abstract void introduce();
 
-    public Person(String firstName, String lastName) {
+    public Person(String firstName, String lastName, Gender gender) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.gender = gender;
     }
 }

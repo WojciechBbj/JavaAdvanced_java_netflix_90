@@ -4,19 +4,20 @@ import recources.Actor;
 import recources.Director;
 import recources.Person;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+
+import static recources.Gender.*;
 
 public class Main {
 
   public static void main(String[] args) {
 
-    Director tommy = new Director("Tommy", "Wiseau");
+    Director tommy = new Director("Tommy", "Wiseau", MALE);
 
-    Actor tommyActor = new Actor("Tommy", "Wiseau");
-    Actor juliette = new Actor("Juliette", "Danielle");
-    Actor greg = new Actor("Greg", "Sestero");
+    Actor tommyActor = new Actor("Tommy", "Wiseau", MALE);
+    Actor juliette = new Actor("Juliette", "Danielle", FEMALE);
+    Actor greg = new Actor("Greg", "Sestero", MALE);
 
     Set<Person> persons = new HashSet<>();
     persons.add(tommy);
@@ -26,10 +27,6 @@ public class Main {
 
     for(Person person : persons) {
       person.introduce();
-    }
-
-    for (int i = 0; i < persons.size(); i++) {
-      
     }
   }
 

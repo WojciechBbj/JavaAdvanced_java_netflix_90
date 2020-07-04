@@ -4,8 +4,8 @@ import java.time.Period;
 
 public class Director extends Person {
 
-    public Director(String firstName, String lastName) {
-        super(firstName, lastName);
+    public Director(String firstName, String lastName, Gender gender) {
+        super(firstName, lastName, gender);
     }
 
     @Override
