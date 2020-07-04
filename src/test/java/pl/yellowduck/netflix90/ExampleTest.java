@@ -1,6 +1,6 @@
 package pl.yellowduck.netflix90;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.v.core.JsonProcessingException;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
