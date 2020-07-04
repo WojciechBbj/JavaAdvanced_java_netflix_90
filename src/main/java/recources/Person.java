@@ -9,6 +9,10 @@ public abstract class Person {
 
     public abstract void introduce();
 
+    public String toString() {
+        return firstName + " " + lastName;
+    };
+
     public Person(String firstName, String lastName, Gender gender) {
         this.firstName = firstName;
         this.lastName = lastName;

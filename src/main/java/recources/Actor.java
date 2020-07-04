@@ -23,5 +23,7 @@ public class Actor extends Person {
                 System.out.println("My name is " + firstName + " " + lastName + ". I'm actress.");
                 break;
         }
+
+
     }
 }

@@ -33,7 +33,9 @@ public class VideoCassette {
                     .append ("|")
                     .append(this.price )
                     .append ("|")
-                    .append(this.director )
+                    .append(this.director.toString() )
+                    .append ("|")
+                    .append(this.actors.toString() )
                     .append ("|");
         System.out.println(builder.toString());
     }
