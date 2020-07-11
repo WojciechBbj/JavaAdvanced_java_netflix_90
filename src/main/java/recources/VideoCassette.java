@@ -1,6 +1,8 @@
 package recources;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class VideoCassette {
@@ -39,4 +41,5 @@ public class VideoCassette {
                     .append ("|");
         System.out.println(builder.toString());
     }
+
 }
