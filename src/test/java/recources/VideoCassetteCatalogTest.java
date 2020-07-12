@@ -28,7 +28,7 @@ class VideoCassetteCatalogTest {
     }
 
     @Test
-    public void thatShouldAddVideoCassetteToCatalog() {
+    public void thatShouldAddVideoCassetteToCatalog() throws CassetteAddException {
 
         //given
 
@@ -52,7 +52,7 @@ class VideoCassetteCatalogTest {
     }
 
     @Test
-    public void thatShouldAdd2VideoCassettesToCatalog() {
+    public void thatShouldAdd2VideoCassettesToCatalog() throws CassetteAddException {
 
         //given
 
@@ -77,7 +77,7 @@ class VideoCassetteCatalogTest {
         );
 
         //when
-        catalog.addVideoCassette(videoCassette1, videoCassette2);
+        catalog.addAllVideoCassettes(videoCassette1, videoCassette2);
 
         //then
 

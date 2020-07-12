@@ -11,11 +11,13 @@ public class UniqueVideoCassetteCatalog implements IVideoCassetteCatalog {
 
     @Override
     public void addVideoCassette(VideoCassette videoCassette) throws CassetteAddException {
-        cassettes.add(videoCassette);
+        if(!cassettes.add(videoCassette)) {
+            throw new CassetteAddException("Cassette already in catalog");
+        };
     }
 
     @Override
-    public void addVideoCassette(VideoCassette... videoCassette) throws CassetteAddException {
+    public void addAllVideoCassettes(VideoCassette... videoCassette) throws CassetteAddException {
         for (VideoCassette cassette : videoCassette) {
             addVideoCassette(cassette);
         }

@@ -15,7 +15,7 @@ public class VideoCassetteCatalog implements IVideoCassetteCatalog {
     }
 
     @Override
-    public void addVideoCassette(VideoCassette... videoCassette) {
+    public void addAllVideoCassettes(VideoCassette... videoCassette) {
         for (VideoCassette cassette : videoCassette) {
                 addVideoCassette(cassette);
         }

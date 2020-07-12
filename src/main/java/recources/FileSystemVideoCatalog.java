@@ -30,4 +30,24 @@ public class FileSystemVideoCatalog extends UniqueVideoCassetteCatalog {
             throw new CassetteAddException(e.getMessage());
         }
     }
+
+    @Override
+    public void addAllVideoCassettes(VideoCassette... videoCassette) throws CassetteAddException {
+        try (BufferedWriter bufferedWriter = Files.newBufferedWriter(file, StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
+            for (VideoCassette cassette : videoCassette) {
+                super.addVideoCassette(cassette);
+                String string = objectMapper.writeValueAsString(cassette);
+                bufferedWriter.write(string);
+                bufferedWriter.newLine();
+            }
+            String string = objectMapper.writeValueAsString(videoCassette);
+            bufferedWriter.write(string);
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            throw new CassetteAddException(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            throw new CassetteAddException(e.getMessage());
+        }
+    }
 }

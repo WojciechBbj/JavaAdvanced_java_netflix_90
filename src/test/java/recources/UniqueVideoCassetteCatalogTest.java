@@ -14,7 +14,7 @@ class UniqueVideoCassetteCatalogTest {
 
     @Test
 
-    public void thatShouldAddSameIdVideoCassette() {
+    public void thatShouldAddSameIdVideoCassette() throws CassetteAddException {
         //given
         VideoCassette videoCassette1 = new VideoCassette(
                 "VID001",
@@ -36,7 +36,7 @@ class UniqueVideoCassetteCatalogTest {
 
         IVideoCassetteCatalog catalog = new UniqueVideoCassetteCatalog();
         //when
-        catalog.addVideoCassette(videoCassette1, videoCassette2);
+        catalog.addAllVideoCassettes(videoCassette1, videoCassette2);
         //then
         assertThat(catalog.getVideoCassettes()).hasSize(1);
     }
