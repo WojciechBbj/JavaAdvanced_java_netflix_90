@@ -1,10 +1,16 @@
 package recources;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.Period;
 
 public class Director extends Person {
 
-    public Director(String firstName, String lastName, Gender gender) {
+    @JsonCreator
+    public Director(@JsonProperty("firstName")String firstName,
+                    @JsonProperty("lastName")String lastName,
+                    @JsonProperty("gender")Gender gender) {
         super(firstName, lastName, gender);
     }
 

@@ -1,10 +1,16 @@
 package recources;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.lang.invoke.SwitchPoint;
 
 public class Actor extends Person {
 
-    public Actor(String firstName, String lastName, Gender gender) {
+    @JsonCreator
+    public Actor(@JsonProperty("firstName") String firstName,
+                 @JsonProperty("lastName")String lastName,
+                 @JsonProperty("gender")Gender gender) {
         super(firstName, lastName, gender);
     }
 

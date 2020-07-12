@@ -1,5 +1,8 @@
 package recources;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +10,8 @@ import java.util.Objects;
 import java.util.Set;
 
 public class VideoCassette {
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -27,8 +32,13 @@ public class VideoCassette {
     private Category category; //typ wyliczeniowy
     private Set<Actor> actors; //<Actor> typ generyczy - o  pisanie rzeczywisotści w abstrakcyjny sposób;
 
-
-    public VideoCassette(String id, BigDecimal price, String title, Director director, Category category, Set<Actor> actors) {
+    @JsonCreator
+    public VideoCassette(@JsonProperty("id") String id,
+                         @JsonProperty("price") BigDecimal price,
+                         @JsonProperty("title") String title,
+                         @JsonProperty("director") Director director,
+                         @JsonProperty("category") Category category,
+                         @JsonProperty("actors") Set<Actor> actors) {
         this.id = id;
         this.price = price;
         this.title = title;

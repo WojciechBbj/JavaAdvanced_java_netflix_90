@@ -2,19 +2,37 @@ package recources;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
+
 public class FileSystemVideoCatalog extends UniqueVideoCassetteCatalog {
 
-    private final Path file = Paths.get("cassettes.txt");
+    public static void main(String[] args) {
+        FileSystemVideoCatalog catalog = new FileSystemVideoCatalog();
+
+        System.out.println("Katalog: " + catalog.getVideoCassettes());
+    }
+
+    private final Path file = Paths.get("cassetts.txt");
 
     private final ObjectMapper objectMapper = new ObjectMapper();
+
+    public FileSystemVideoCatalog() {
+        try (BufferedReader bufferedReader = Files.newBufferedReader(file)) {
+            String line;
+            while((line = bufferedReader.readLine()) != null) {
+                VideoCassette cassette = objectMapper.readValue(line, VideoCassette.class);
+                super.addVideoCassette(cassette);
+            }
+        } catch (IOException | CassetteAddException e) {
+            System.out.println(e.getMessage());
+            throw new CassetteReadException("Cannot read file");
+        }
+    }
 
     @Override
     public void addVideoCassette(VideoCassette videoCassette) throws CassetteAddException {
@@ -22,9 +40,6 @@ public class FileSystemVideoCatalog extends UniqueVideoCassetteCatalog {
         try (BufferedWriter bufferedWriter = Files.newBufferedWriter(file, StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
             String string = objectMapper.writeValueAsString(videoCassette);
             bufferedWriter.write(string);
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
-            throw new CassetteAddException(e.getMessage());
         } catch (IOException e) {
             System.out.println(e.getMessage());
             throw new CassetteAddException(e.getMessage());
@@ -42,9 +57,6 @@ public class FileSystemVideoCatalog extends UniqueVideoCassetteCatalog {
             }
             String string = objectMapper.writeValueAsString(videoCassette);
             bufferedWriter.write(string);
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
-            throw new CassetteAddException(e.getMessage());
         } catch (IOException e) {
             System.out.println(e.getMessage());
             throw new CassetteAddException(e.getMessage());
