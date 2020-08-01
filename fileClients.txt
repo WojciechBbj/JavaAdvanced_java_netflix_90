@@ -1,0 +1,1 @@
+[Client{clientID='001', firstName='Piotr', lastName='Adamczyk', address=Address{street='Rynek Jeżycki 1', city='Poznań', postalCode='60-100'}, status=VIP}, Client{clientID='002', firstName='Tomasz', lastName='Karolak', address=Address{street='Rynek Jeżycki 2', city='Poznań', postalCode='60-100'}, status=NORMAL}]

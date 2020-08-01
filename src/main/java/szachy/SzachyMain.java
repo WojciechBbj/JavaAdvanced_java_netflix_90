@@ -32,7 +32,7 @@ public class SzachyMain {
             Byte wiersz = scanner.nextByte();
             punktDoPrzesunięcia = new Punkt(kolumna.charAt(0), wiersz);
         } while (!pion3.czyJuzNaTymPunkcie(punktDoPrzesunięcia));
- cc
+
         try {
             pion3.przesun(punktDoPrzesunięcia);
         } catch (Exception e) {
